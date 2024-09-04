@@ -1,42 +1,16 @@
+import 'package:braindbox/apps/controllers/onboarding_controller.dart';
 import 'package:braindbox/apps/utils/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class OnboardingPage extends StatefulWidget {
+class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
 
   @override
-  _OnboardingPageState createState() => _OnboardingPageState();
-}
-
-class _OnboardingPageState extends State<OnboardingPage> {
-  final PageController _controller = PageController();
-  int _currentIndex = 0;
-
-  void _goToPrevious() {
-    if (_currentIndex > 0) {
-      _controller.previousPage(
-          duration: const Duration(milliseconds: 600), curve: Curves.easeInOut);
-    }
-  }
-
-  void _goToNext(BuildContext context) {
-    if (_currentIndex < 2) {
-      _controller.nextPage(
-          duration: const Duration(milliseconds: 600), curve: Curves.easeInOut);
-    } else {
-      Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const Placeholder()));
-    }
-  }
-
-  void _skip(BuildContext context) {
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const Placeholder()));
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final OnboardingController controller = Get.put(OnboardingController());
+
     return Scaffold(
       backgroundColor: primaryColor,
       body: Padding(
@@ -48,12 +22,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
               children: [
                 Expanded(
                   child: PageView(
-                    controller: _controller,
-                    onPageChanged: (index) {
-                      setState(() {
-                        _currentIndex = index;
-                      });
-                    },
+                    controller: controller.pageController,
+                    onPageChanged: controller.updateIndex,
                     children: [
                       _buildPage(
                         imagePath: 'assets/images/onboarding1.png',
@@ -76,17 +46,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     ],
                   ),
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: BottomNavigationButtons(
-                      currentIndex: _currentIndex,
-                      onGoToPrevious: _goToPrevious,
-                      onGoToNext: (context) => _goToNext(context),
-                    ),
-                  ),
-                ),
+                Obx(() => BottomNavigationButtons(
+                      currentIndex: controller.currentIndex.value,
+                      onGoToPrevious: controller.goToPrevious,
+                      onGoToNext: () => controller.goToNext(context),
+                    )),
               ],
             ),
             Align(
@@ -94,7 +58,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: TextButton(
-                  onPressed: () => _skip(context),
+                  onPressed: () => controller.skip(context),
                   child: const Text(
                     'Skip',
                     style: TextStyle(
@@ -116,6 +80,8 @@ class _OnboardingPageState extends State<OnboardingPage> {
     required String title,
     required String description,
   }) {
+    final OnboardingController controller = Get.find<OnboardingController>();
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -126,7 +92,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         ),
         const SizedBox(height: 20),
         SmoothPageIndicator(
-          controller: _controller,
+          controller: controller.pageController,
           count: 3,
           effect: SlideEffect(
             activeDotColor: Colors.white,
@@ -162,7 +128,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
 class BottomNavigationButtons extends StatelessWidget {
   final int currentIndex;
   final void Function() onGoToPrevious;
-  final void Function(BuildContext context) onGoToNext;
+  final void Function() onGoToNext;
 
   const BottomNavigationButtons({
     required this.currentIndex,
@@ -200,7 +166,7 @@ class BottomNavigationButtons extends StatelessWidget {
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
           IconButton(
-            onPressed: () => onGoToNext(context),
+            onPressed: onGoToNext,
             icon: const Icon(
               Icons.arrow_forward,
               color: Colors.white,
