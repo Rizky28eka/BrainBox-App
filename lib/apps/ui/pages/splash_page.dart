@@ -1,0 +1,80 @@
+import 'package:braindbox/apps/controllers/splash_controller.dart';
+import 'package:braindbox/apps/utils/color.dart';
+import 'package:braindbox/apps/utils/responsive.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class SplashPage extends StatelessWidget {
+  const SplashPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    Get.put(SplashController());
+    return Scaffold(
+      backgroundColor: primaryColor,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: ResponsiveUtils.to.getWidthPercentage(0.5),
+                    height: ResponsiveUtils.to.getWidthPercentage(0.5),
+                    child: Image.asset(
+                      'assets/images/logo.png',
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                  SizedBox(
+                      height: ResponsiveUtils.to.getHeightPercentage(0.02)),
+                  Text(
+                    'Welcome to Braindbox',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: ResponsiveUtils.to.getWidthPercentage(0.045),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                  bottom: ResponsiveUtils.to.getHeightPercentage(0.05)),
+              child: Column(
+                children: [
+                  SizedBox(
+                      height: ResponsiveUtils.to.getHeightPercentage(0.02)),
+                  Align(
+                    alignment: Alignment.center,
+                    child: RichText(
+                      text: TextSpan(
+                        text: 'Created BY ',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize:
+                              ResponsiveUtils.to.getWidthPercentage(0.035),
+                        ),
+                        children: const <TextSpan>[
+                          TextSpan(
+                            text: 'R2E',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
