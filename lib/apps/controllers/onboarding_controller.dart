@@ -1,3 +1,4 @@
+import 'package:braindbox/apps/ui/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,12 +23,12 @@ class OnboardingController extends GetxController {
           duration: const Duration(milliseconds: 600), curve: Curves.easeInOut);
     } else {
       Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const Placeholder()));
+          MaterialPageRoute(builder: (context) => const WelcomePage()));
     }
   }
 
   void skip(BuildContext context) {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const Placeholder()));
+        context, MaterialPageRoute(builder: (context) => const WelcomePage()));
   }
 }

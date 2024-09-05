@@ -13,7 +13,7 @@ class SplashPage2 extends StatelessWidget {
     return Scaffold(
       backgroundColor: primaryColor,
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(18.0),
         child: Column(
           children: [
             Expanded(

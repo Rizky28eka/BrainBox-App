@@ -14,7 +14,7 @@ class OnboardingPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: primaryColor,
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(18.0),
         child: Stack(
           children: [
             Column(
