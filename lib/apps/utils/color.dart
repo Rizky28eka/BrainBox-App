@@ -7,3 +7,5 @@ const Color primaryColor = Color(0xff141718);
 const Color facebookBackgroundColor = Color(0xff4267B2);
 
 const Color googleBackgroundColor = Color(0xffD44638);
+
+const Color greyColor = Color(0xFFC2C3CB);

@@ -3,7 +3,6 @@ import 'package:braindbox/apps/controllers/onboarding_controller.dart';
 import 'package:braindbox/apps/controllers/register_controller.dart';
 import 'package:braindbox/apps/controllers/splash_controller.dart';
 import 'package:braindbox/apps/controllers/splash_controller2.dart';
-import 'package:braindbox/apps/controllers/welcome_controller.dart';
 import 'package:get/get.dart';
 
 class InitialBinding extends Bindings {
@@ -14,6 +13,6 @@ class InitialBinding extends Bindings {
     Get.lazyPut<OnboardingController>(() => OnboardingController());
     Get.lazyPut<LoginController>(() => LoginController());
     Get.lazyPut<RegisterController>(() => RegisterController());
-    Get.lazyPut<WelcomeController>(() => WelcomeController());
+    // Get.lazyPut<WelcomeController>(() => WelcomeController());
   }
 }

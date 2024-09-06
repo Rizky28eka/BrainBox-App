@@ -4,18 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class WelcomeController extends GetxController {
-  void onLoginPressed(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const LoginPage()),
-    );
+  void onLoginPressed() {
+    Get.to(() => const LoginPage());
   }
 
-  void onSignUpPressed(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const RegisterPage()),
-    );
+  void onSignUpPressed() {
+    Get.to(() => RegisterPage());
   }
 
   void onGooglePressed() {

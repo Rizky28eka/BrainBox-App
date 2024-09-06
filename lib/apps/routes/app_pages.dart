@@ -1,5 +1,6 @@
 import 'package:braindbox/apps/bindings/initial_bindings.dart';
 import 'package:braindbox/apps/routes/app_routes.dart';
+import 'package:braindbox/apps/ui/pages/forgot_password_page.dart';
 import 'package:braindbox/apps/ui/pages/login_page.dart';
 import 'package:braindbox/apps/ui/pages/onboarding_page.dart';
 import 'package:braindbox/apps/ui/pages/register_page.dart';
@@ -38,6 +39,11 @@ class AppPages {
     GetPage(
       name: AppRoutes.registerPage,
       page: () => RegisterPage(),
+      binding: InitialBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.forgotPasswordPage,
+      page: () => ForgotPasswordPage(),
       binding: InitialBinding(),
     )
   ];

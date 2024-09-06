@@ -1,21 +1,15 @@
 import 'package:braindbox/apps/controllers/welcome_controller.dart';
-import 'package:braindbox/apps/ui/widgets/custom_button.dart';
 import 'package:braindbox/apps/utils/color.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class WelcomePage extends StatefulWidget {
+class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
 
   @override
-  State<WelcomePage> createState() => _WelcomePageState();
-}
-
-class _WelcomePageState extends State<WelcomePage> {
-  final WelcomeController _controller =
-      WelcomeController(); // Instance of controller
-
-  @override
   Widget build(BuildContext context) {
+    final WelcomeController controller = Get.put(WelcomeController());
+
     return Scaffold(
       backgroundColor: primaryColor,
       body: Padding(
@@ -47,24 +41,52 @@ class _WelcomePageState extends State<WelcomePage> {
                 ),
               ),
               const SizedBox(height: 30),
-              CustomButton(
-                label: 'Login',
-                backgroundColor: Colors.black.withOpacity(0.01),
-                textColor: Colors.white,
-                width: 350, // Custom width
-                height: 65, // Custom height
-                onPressed: () =>
-                    _controller.onLoginPressed(context), // Navigate to Login
+              SizedBox(
+                width: 400,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: controller.onLoginPressed,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: greyColor.withOpacity(0.1),
+                    padding: EdgeInsets.symmetric(
+                      vertical: 15,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: Text(
+                    "Login",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
-              const SizedBox(height: 10),
-              CustomButton(
-                label: 'Sign Up',
-                backgroundColor: Colors.black.withOpacity(0.01),
-                textColor: Colors.white,
-                width: 350, // Custom width
-                height: 65, // Custom height
-                onPressed: () => _controller
-                    .onSignUpPressed(context), // Navigate to Register
+              const SizedBox(height: 20),
+              SizedBox(
+                width: 400,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: controller.onLoginPressed,
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: greyColor.withOpacity(0.1),
+                    padding: EdgeInsets.symmetric(
+                      vertical: 15,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                  child: Text(
+                    "Register",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(height: 20),
               const Text(
@@ -78,21 +100,49 @@ class _WelcomePageState extends State<WelcomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomButton(
-                    label: 'Google',
-                    backgroundColor: googleBackgroundColor.withOpacity(0.2),
-                    textColor: googleBackgroundColor,
-                    width: 150, // Custom width
-                    height: 50, // Custom height
-                    onPressed: _controller.onGooglePressed, // Use controller
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: controller.onGooglePressed,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: googleBackgroundColor.withOpacity(0.2),
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: Text(
+                        "Google",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: googleBackgroundColor,
+                        ),
+                      ),
+                    ),
                   ),
-                  CustomButton(
-                    label: 'Facebook',
-                    backgroundColor: facebookBackgroundColor.withOpacity(0.2),
-                    textColor: facebookBackgroundColor,
-                    width: 150, // Custom width
-                    height: 50, // Custom height
-                    onPressed: _controller.onFacebookPressed, // Use controller
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: controller.onFacebookPressed,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            facebookBackgroundColor.withOpacity(0.2),
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      child: Text(
+                        "Facebook",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: facebookBackgroundColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),

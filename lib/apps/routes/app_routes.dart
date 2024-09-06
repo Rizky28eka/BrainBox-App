@@ -1,8 +1,9 @@
 class AppRoutes {
-  static const splashPage = '/splashPage';
-  static const splashPage2 = '/splashPage2';
-  static const loginPage = '/loginPage';
-  static const onboardingPage = '/onboardingPage';
-  static const welcomePage = '/welcomePage';
-  static const registerPage = '/registerPage';
+  static const splashPage = '/splash-page';
+  static const splashPage2 = '/splash-page-2';
+  static const loginPage = '/login-page';
+  static const onboardingPage = '/onboarding-page';
+  static const welcomePage = '/welcome-page';
+  static const registerPage = '/register-page';
+  static const forgotPasswordPage = '/forgot-password-page';
 }
