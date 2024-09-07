@@ -9,7 +9,7 @@ class WelcomeController extends GetxController {
   }
 
   void onSignUpPressed() {
-    Get.to(() => RegisterPage());
+    Get.to(() => const RegisterPage());
   }
 
   void onGooglePressed() {

@@ -48,14 +48,12 @@ class WelcomePage extends StatelessWidget {
                   onPressed: controller.onLoginPressed,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: greyColor.withOpacity(0.1),
-                    padding: EdgeInsets.symmetric(
-                      vertical: 15,
-                    ),
+                    padding: const EdgeInsets.all(15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Login",
                     style: TextStyle(
                       fontSize: 16,
@@ -69,17 +67,15 @@ class WelcomePage extends StatelessWidget {
                 width: 400,
                 height: 50,
                 child: ElevatedButton(
-                  onPressed: controller.onLoginPressed,
+                  onPressed: controller.onSignUpPressed, // Corrected method
                   style: ElevatedButton.styleFrom(
                     backgroundColor: greyColor.withOpacity(0.1),
-                    padding: EdgeInsets.symmetric(
-                      vertical: 15,
-                    ),
+                    padding: const EdgeInsets.all(15),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Register",
                     style: TextStyle(
                       fontSize: 16,
@@ -98,16 +94,15 @@ class WelcomePage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
+                  SizedBox(
+                    width: 170, // Set a fixed width for the button
                     child: ElevatedButton(
                       onPressed: controller.onGooglePressed,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: googleBackgroundColor.withOpacity(0.2),
-                        padding: EdgeInsets.symmetric(
-                          vertical: 15,
-                        ),
+                        padding: const EdgeInsets.all(15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),
@@ -122,15 +117,14 @@ class WelcomePage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  Expanded(
+                  SizedBox(
+                    width: 170, // Set a fixed width for the button
                     child: ElevatedButton(
                       onPressed: controller.onFacebookPressed,
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
                             facebookBackgroundColor.withOpacity(0.2),
-                        padding: EdgeInsets.symmetric(
-                          vertical: 15,
-                        ),
+                        padding: const EdgeInsets.all(15),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12),
                         ),

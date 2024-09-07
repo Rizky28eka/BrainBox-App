@@ -1,5 +1,4 @@
-import 'package:braindbox/apps/controllers/login_controller.dart';
-import 'package:braindbox/apps/ui/widgets/custom_button.dart';
+import 'package:braindbox/apps/controllers/register_controller.dart';
 import 'package:braindbox/apps/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -9,7 +8,7 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LoginController controller = Get.put(LoginController());
+    final RegisterController controller = Get.put(RegisterController());
 
     return Scaffold(
       backgroundColor: primaryColor,
@@ -45,12 +44,29 @@ class RegisterPage extends StatelessWidget {
               SizedBox(
                   height: controller.responsiveUtils.getHeightPercentage(0.03)),
               Text(
-                "Welcome Back!",
+                "Create your \n Account",
                 style: TextStyle(
                   fontSize: controller.headingFontSize,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
+              ),
+              SizedBox(
+                  height: controller.responsiveUtils.getHeightPercentage(0.04)),
+              TextFormField(
+                decoration: InputDecoration(
+                  labelText: "Full Name",
+                  prefixIcon: const Icon(Icons.person, color: Colors.white),
+                  fillColor: greyColor.withOpacity(0.1),
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(
+                        controller.responsiveUtils.getWidthPercentage(0.03)),
+                  ),
+                  labelStyle: TextStyle(
+                      color: Colors.white, fontSize: controller.labelFontSize),
+                ),
+                style: const TextStyle(color: Colors.white),
               ),
               SizedBox(
                   height: controller.responsiveUtils.getHeightPercentage(0.04)),
@@ -67,7 +83,7 @@ class RegisterPage extends StatelessWidget {
                   labelStyle: TextStyle(
                       color: Colors.white, fontSize: controller.labelFontSize),
                 ),
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
               SizedBox(
                   height: controller.responsiveUtils.getHeightPercentage(0.02)),
@@ -122,7 +138,7 @@ class RegisterPage extends StatelessWidget {
                   children: [
                     Text.rich(
                       TextSpan(
-                        text: "Don't have an account? ",
+                        text: "Already have an account? ",
                         style: TextStyle(
                           fontSize: controller.bodyFontSize,
                           color: Colors.white,
@@ -131,10 +147,10 @@ class RegisterPage extends StatelessWidget {
                           WidgetSpan(
                             child: GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(context, '/registerpage');
+                                Navigator.pushNamed(context, '/RegisterPage');
                               },
                               child: Text(
-                                "Sign Up",
+                                "Sign In",
                                 style: TextStyle(
                                   fontSize: controller.bodyFontSize,
                                   fontWeight: FontWeight.bold,
@@ -174,36 +190,61 @@ class RegisterPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Expanded(
-                    child: CustomButton(
-                      label: 'Google',
-                      backgroundColor: googleBackgroundColor.withOpacity(0.1),
-                      textColor: googleBackgroundColor,
-                      width: controller.responsiveUtils.getWidthPercentage(0.4),
-                      height:
-                          controller.responsiveUtils.getHeightPercentage(0.07),
-                      borderRadius:
-                          controller.responsiveUtils.getWidthPercentage(0.03),
-                      onPressed: () {},
+                    child: ElevatedButton(
+                      onPressed:
+                          controller.onGooglePressed, // Fungsi Google login
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: googleBackgroundColor.withOpacity(0.2),
+                        padding: EdgeInsets.symmetric(
+                          vertical: controller.responsiveUtils
+                              .getHeightPercentage(0.02),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(controller
+                              .responsiveUtils
+                              .getWidthPercentage(0.03)),
+                        ),
+                      ),
+                      child: Text(
+                        "Google",
+                        style: TextStyle(
+                          fontSize: controller.bodyFontSize,
+                          color: googleBackgroundColor,
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(
                       width:
-                          controller.responsiveUtils.getWidthPercentage(0.05)),
+                          controller.responsiveUtils.getWidthPercentage(0.02)),
                   Expanded(
-                    child: CustomButton(
-                      label: 'Facebook',
-                      backgroundColor: facebookBackgroundColor.withOpacity(0.1),
-                      textColor: facebookBackgroundColor,
-                      width: controller.responsiveUtils.getWidthPercentage(0.4),
-                      height:
-                          controller.responsiveUtils.getHeightPercentage(0.07),
-                      borderRadius:
-                          controller.responsiveUtils.getWidthPercentage(0.03),
-                      onPressed: () {},
+                    child: ElevatedButton(
+                      onPressed:
+                          controller.onFacebookPressed, // Fungsi Facebook login
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor:
+                            facebookBackgroundColor.withOpacity(0.2),
+                        padding: EdgeInsets.symmetric(
+                          vertical: controller.responsiveUtils
+                              .getHeightPercentage(0.02),
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(controller
+                              .responsiveUtils
+                              .getWidthPercentage(0.03)),
+                        ),
+                      ),
+                      child: Text(
+                        "Facebook",
+                        style: TextStyle(
+                          fontSize: controller.bodyFontSize,
+                          color: facebookBackgroundColor,
+                        ),
+                      ),
                     ),
                   ),
                 ],
-              ),
+              )
             ],
           ),
         ),
