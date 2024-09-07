@@ -1,4 +1,4 @@
-import 'package:braindbox/apps/ui/pages/welcome_page.dart';
+import 'package:braindbox/apps/ui/pages/core/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

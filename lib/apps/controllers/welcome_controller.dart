@@ -1,5 +1,5 @@
-import 'package:braindbox/apps/ui/pages/login_page.dart';
-import 'package:braindbox/apps/ui/pages/register_page.dart';
+import 'package:braindbox/apps/ui/pages/auth/login_page.dart';
+import 'package:braindbox/apps/ui/pages/auth/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

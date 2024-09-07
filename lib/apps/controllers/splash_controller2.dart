@@ -1,4 +1,4 @@
-import 'package:braindbox/apps/ui/pages/onboarding_page.dart';
+import 'package:braindbox/apps/ui/pages/core/onboarding_page.dart';
 import 'package:get/get.dart';
 
 class SplashController2 extends GetxController {

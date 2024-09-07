@@ -1,12 +1,12 @@
 import 'package:braindbox/apps/bindings/initial_bindings.dart';
 import 'package:braindbox/apps/routes/app_routes.dart';
-import 'package:braindbox/apps/ui/pages/forgot_password_page.dart';
-import 'package:braindbox/apps/ui/pages/login_page.dart';
-import 'package:braindbox/apps/ui/pages/onboarding_page.dart';
-import 'package:braindbox/apps/ui/pages/register_page.dart';
-import 'package:braindbox/apps/ui/pages/splash_page.dart';
-import 'package:braindbox/apps/ui/pages/splash_page2.dart';
-import 'package:braindbox/apps/ui/pages/welcome_page.dart';
+import 'package:braindbox/apps/ui/pages/auth/forgot_password_page.dart';
+import 'package:braindbox/apps/ui/pages/auth/login_page.dart';
+import 'package:braindbox/apps/ui/pages/core/onboarding_page.dart';
+import 'package:braindbox/apps/ui/pages/auth/register_page.dart';
+import 'package:braindbox/apps/ui/pages/core/splash_page.dart';
+import 'package:braindbox/apps/ui/pages/core/splash_page2.dart';
+import 'package:braindbox/apps/ui/pages/core/welcome_page.dart';
 import 'package:get/get.dart';
 
 class AppPages {
