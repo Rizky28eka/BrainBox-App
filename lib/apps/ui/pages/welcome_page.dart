@@ -107,7 +107,7 @@ class WelcomePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         "Google",
                         style: TextStyle(
                           fontSize: 16,
@@ -129,7 +129,7 @@ class WelcomePage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         "Facebook",
                         style: TextStyle(
                           fontSize: 16,

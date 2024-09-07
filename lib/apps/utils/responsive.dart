@@ -34,10 +34,6 @@ const TextStyle captionTextStyle = TextStyle(
 class ResponsiveUtils extends GetxController {
   static ResponsiveUtils get to => Get.find();
 
-  @override
-  void onInit() {
-    super.onInit();
-  }
 
   double get width => Get.size.width;
   double get height => Get.size.height;

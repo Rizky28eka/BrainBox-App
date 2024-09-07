@@ -33,17 +33,17 @@ class AppPages {
     ),
     GetPage(
       name: AppRoutes.welcomePage,
-      page: () => WelcomePage(),
+      page: () => const WelcomePage(),
       binding: InitialBinding(),
     ),
     GetPage(
       name: AppRoutes.registerPage,
-      page: () => RegisterPage(),
+      page: () => const RegisterPage(),
       binding: InitialBinding(),
     ),
     GetPage(
       name: AppRoutes.forgotPasswordPage,
-      page: () => ForgotPasswordPage(),
+      page: () => const ForgotPasswordPage(),
       binding: InitialBinding(),
     )
   ];

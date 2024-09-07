@@ -103,7 +103,7 @@ class RegisterPage extends StatelessWidget {
                   labelStyle: TextStyle(
                       color: Colors.white, fontSize: controller.labelFontSize),
                 ),
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
               ),
               SizedBox(
                   height: controller.responsiveUtils.getHeightPercentage(0.03)),
