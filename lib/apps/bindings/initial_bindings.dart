@@ -1,8 +1,8 @@
-import 'package:braindbox/apps/controllers/login_controller.dart';
-import 'package:braindbox/apps/controllers/onboarding_controller.dart';
-import 'package:braindbox/apps/controllers/register_controller.dart';
-import 'package:braindbox/apps/controllers/splash_controller.dart';
-import 'package:braindbox/apps/controllers/splash_controller2.dart';
+import 'package:braindbox/apps/controllers/auth/login_controller.dart';
+import 'package:braindbox/apps/controllers/core/onboarding_controller.dart';
+import 'package:braindbox/apps/controllers/auth/register_controller.dart';
+import 'package:braindbox/apps/controllers/core/splash_controller.dart';
+import 'package:braindbox/apps/controllers/core/splash_controller2.dart';
 import 'package:get/get.dart';
 
 class InitialBinding extends Bindings {

@@ -1,4 +1,4 @@
-import 'package:braindbox/apps/controllers/register_controller.dart';
+import 'package:braindbox/apps/controllers/auth/register_controller.dart';
 import 'package:braindbox/apps/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

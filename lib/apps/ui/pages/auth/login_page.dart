@@ -1,4 +1,4 @@
-import 'package:braindbox/apps/controllers/login_controller.dart';
+import 'package:braindbox/apps/controllers/auth/login_controller.dart';
 import 'package:braindbox/apps/utils/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -89,11 +89,27 @@ class LoginPage extends StatelessWidget {
                 style: const TextStyle(color: Colors.white),
               ),
               SizedBox(
+                  height: controller.responsiveUtils.getHeightPercentage(0.02)),
+              Align(
+                alignment: Alignment.centerRight,
+                child: GestureDetector(
+                  onTap: controller.onForgotPasswordPressed,
+                  child: Text(
+                    "Forgot Password?",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: controller.bodyFontSize,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
                   height: controller.responsiveUtils.getHeightPercentage(0.03)),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: controller.onLoginPressed, // Fungsi login
+                  onPressed: controller.onLoginPressed,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: greyColor.withOpacity(0.1),
                     padding: EdgeInsets.symmetric(
@@ -174,8 +190,7 @@ class LoginPage extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ElevatedButton(
-                      onPressed:
-                          controller.onGooglePressed, // Fungsi Google login
+                      onPressed: controller.onGooglePressed,
                       style: ElevatedButton.styleFrom(
                         backgroundColor: googleBackgroundColor.withOpacity(0.2),
                         padding: EdgeInsets.symmetric(
@@ -202,8 +217,7 @@ class LoginPage extends StatelessWidget {
                           controller.responsiveUtils.getWidthPercentage(0.02)),
                   Expanded(
                     child: ElevatedButton(
-                      onPressed:
-                          controller.onFacebookPressed, // Fungsi Facebook login
+                      onPressed: controller.onFacebookPressed,
                       style: ElevatedButton.styleFrom(
                         backgroundColor:
                             facebookBackgroundColor.withOpacity(0.2),

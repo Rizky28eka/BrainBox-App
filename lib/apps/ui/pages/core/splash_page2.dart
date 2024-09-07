@@ -1,4 +1,4 @@
-import 'package:braindbox/apps/controllers/splash_controller2.dart';
+import 'package:braindbox/apps/controllers/core/splash_controller2.dart';
 import 'package:braindbox/apps/utils/color.dart';
 import 'package:braindbox/apps/utils/responsive.dart';
 import 'package:flutter/material.dart';
